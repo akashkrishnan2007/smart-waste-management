@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: smart-waste-backend
+    runtime: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn "app:create_app()" --bind 0.0.0.0:$PORT --workers 2 --timeout 120
+    envVars:
+      - key: FLASK_ENV
+        value: production
+      - key: FLASK_DEBUG
+        value: "False"
+      - key: MONGO_URI
+        sync: false        # set manually in Render dashboard
+      - key: SECRET_KEY
+        sync: false        # set manually in Render dashboard
+      - key: JWT_SECRET_KEY
+        sync: false        # set manually in Render dashboard
+      - key: JWT_EXPIRY_HOURS
+        value: "24"
+      - key: FRONTEND_URL
+        sync: false        # set to your Vercel URL after frontend deploy
+      - key: DATASET_PATH
+        value: dataset/Waste_Management_and_Recycling_India.csv
+      - key: MODEL_PATH
+        value: ml/waste_model.pkl
