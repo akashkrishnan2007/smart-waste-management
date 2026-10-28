@@ -5,13 +5,6 @@ import { MdRecycling, MdEmail, MdLock, MdVisibility, MdVisibilityOff } from 'rea
 import Button from '../components/common/Button';
 import Input from '../components/common/Input';
 
-const features = [
-  { icon: '📊', title: 'Real-time Analytics',   desc: 'Monitor waste generation across cities' },
-  { icon: '🤖', title: 'AI Predictions',        desc: 'ML-powered waste forecasting'          },
-  { icon: '♻️', title: 'Recycling Insights',   desc: 'Track and improve recycling rates'      },
-  { icon: '🗺️', title: 'Landfill Monitoring',  desc: 'Smart capacity management'              },
-];
-
 const Login = () => {
   const navigate = useNavigate();
   const [form, setForm]       = useState({ email: 'admin@smartwaste.in', password: 'admin123' });
@@ -45,78 +38,24 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex bg-background">
-      {/* Left panel */}
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary-50 via-background to-primary-50 p-6">
+      {/* Centered form container */}
       <motion.div
-        className="hidden lg:flex flex-col justify-between w-[48%] gradient-green p-12 text-white"
-        initial={{ x: -60, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
+        className="w-full max-w-md"
+        initial={{ y: 20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
       >
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center">
-            <MdRecycling className="text-white text-2xl" />
-          </div>
-          <div>
-            <p className="font-bold text-xl leading-tight">SmartWaste</p>
-            <p className="text-white/70 text-xs">Analytics System</p>
-          </div>
-        </div>
-
-        <div>
-          <motion.h1
-            className="text-4xl font-bold leading-tight mb-4"
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.2 }}
-          >
-            Smart Waste
-            <br />
-            <span className="text-white/80">Management</span>
-            <br />
-            Analytics
-          </motion.h1>
-          <p className="text-white/70 text-base mb-10">
-            A data-driven platform for monitoring, analyzing, and predicting
-            waste generation across Indian cities.
-          </p>
-
-          <div className="grid grid-cols-2 gap-4">
-            {features.map((f, i) => (
-              <motion.div
-                key={f.title}
-                className="bg-white/10 backdrop-blur-sm rounded-2xl p-4"
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.3 + i * 0.1 }}
-              >
-                <span className="text-2xl">{f.icon}</span>
-                <p className="font-semibold mt-2 text-sm">{f.title}</p>
-                <p className="text-white/60 text-xs mt-0.5">{f.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-
-        <p className="text-white/40 text-xs">
-          Final Year Engineering Project &copy; {new Date().getFullYear()}
-        </p>
-      </motion.div>
-
-      {/* Right panel — form */}
-      <motion.div
-        className="flex-1 flex items-center justify-center p-6 sm:p-10"
-        initial={{ x: 60, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
-      >
-        <div className="w-full max-w-md">
-          {/* Mobile logo */}
-          <div className="flex items-center gap-2 mb-8 lg:hidden">
-            <div className="w-9 h-9 gradient-green rounded-xl flex items-center justify-center">
-              <MdRecycling className="text-white text-xl" />
+        <div className="bg-white rounded-2xl shadow-xl p-8 sm:p-10">
+          {/* Logo */}
+          <div className="flex items-center justify-center gap-2 mb-8">
+            <div className="w-12 h-12 gradient-green rounded-xl flex items-center justify-center">
+              <MdRecycling className="text-white text-2xl" />
             </div>
-            <p className="font-bold text-xl text-primary-700">SmartWaste</p>
+            <div>
+              <p className="font-bold text-xl text-primary-700">SmartWaste</p>
+              <p className="text-slate-500 text-xs">Analytics System</p>
+            </div>
           </div>
 
           <div className="mb-8">
